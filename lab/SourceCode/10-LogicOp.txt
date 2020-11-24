@@ -1,0 +1,35 @@
+#include <windows.h>
+#include <GL/glut.h>
+void mydisplay(){
+	glDisable(GL_COLOR_LOGIC_OP);
+
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(1.0, 1.0, 0.0);
+	glBegin(GL_POLYGON);
+		glVertex2f(-1.0, -0.5);
+		glVertex2f(-1.0, 0.5);
+		glVertex2f(1.0, 0.5);
+		glVertex2f(1.0, -0.5);
+	glEnd();
+
+	glEnable(GL_COLOR_LOGIC_OP);
+
+    //glLogicOp(GL_COPY);
+	//glLogicOp(GL_OR);
+	glLogicOp(GL_AND);
+
+	glColor3f(0.0, 1.0, 1.0);
+	glBegin(GL_POLYGON);
+		glVertex2f(-0.5, -1.0);
+		glVertex2f(-0.5, 1.0);
+		glVertex2f(0.5, 1.0);
+		glVertex2f(0.5, -1.0);
+	glEnd();
+
+	glFlush();
+}
+int main(int argc, char** argv){
+	glutCreateWindow("Logic Operation");
+	glutDisplayFunc(mydisplay);
+	glutMainLoop();
+}

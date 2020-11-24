@@ -1,0 +1,48 @@
+#include <windows.h>
+#include <GL/glut.h>
+
+int screenWidth = 500;
+int screenHeight = 500;
+int len = 20;
+
+void mydisplay(){
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glFlush();
+}
+void drawSquare(int x, int y) {
+	//y = screenHeight-y; /* invert y position */
+	glColor3ub( (char) rand()%256, (char) rand ()%256, (char) rand()%256);
+	glBegin(GL_POLYGON);
+		glVertex2f(x+len, y+len);  glVertex2f(x-len, y+len);
+		glVertex2f(x-len, y-len);  glVertex2f(x+len, y-len);
+	glEnd();
+	glFlush();
+}
+
+void init()
+{
+    glClearColor(1, 1, 1, 1);
+    glColor3f(1, 0, 0);
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    //glOrtho(0, screenWidth, 0, screenHeight, -1, 1);
+    glOrtho(0, screenWidth, screenHeight, 0, -1, 1);
+}
+int main(int argc, char *argv[])
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize(500, 500);
+    glutInitWindowPosition(0, 0);
+    glutCreateWindow("Mouse Move - Depress mouse button (left or right)");
+
+    glutDisplayFunc(mydisplay);
+    glutMotionFunc(drawSquare);
+
+    init();
+
+    glutMainLoop();
+}
+
