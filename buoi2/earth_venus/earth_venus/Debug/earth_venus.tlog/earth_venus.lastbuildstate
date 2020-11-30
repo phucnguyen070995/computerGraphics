@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.27.29110:TargetPlatformVersion=10.0.18362.0:
 Debug|Win32|E:\computer_science\HK4\computerGraphics\computerGraphics\buoi2\earth_venus\|
+=======
+PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.27.29110:TargetPlatformVersion=10.0.18362.0:
+Debug|Win32|E:\computer_science\HK4\computerGraphics\computerGraphics\buoi2\earth_venus\|
+>>>>>>> cc4e19c24a5952045246e4d95966f60063f2b761
